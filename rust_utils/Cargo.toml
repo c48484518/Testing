@@ -1,0 +1,26 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[package]
+# Define package's name.
+name = "rust_utils"
+version = "0.1.0"
+authors = ["JoelPasapera", "<https://github.com/JoelPasapera>"]
+license = "MIT OR Apache-2.0"
+keywords = ["back_test", "trading_algorithm"]
+description = "A collection of utility functions for trading development in Rust"
+categories = ["development-tools::ffi","finance","simulation"]
+
+# compile to be used as library
+[lib]
+# It is good practice that library name's and package's name are called the same.
+name = "rust_utils" 
+# Is defined dynamic because it will be used in python
+crate-type = ["cdylib"] 
+
+[dependencies]
+# Getting the last version of each library
+polars = { version = "0.44.2", features = ["lazy"] }
+chrono = "0.4"
+# pyo3 = "0.22.4"
+
+[resolver]
+resolver = "2"
